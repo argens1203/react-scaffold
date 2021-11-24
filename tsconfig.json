@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "experimentalDecorators": true,
+    "strictNullChecks": true,
+    "checkJs": true,
     "target": "es5",
     "lib": [
       "dom",
