@@ -26,9 +26,10 @@ export async function getAllStuff(): Promise<Stuff[]> {
         meta: getMeta(),
         data: 'another',
     });
+    const nulledStuff = null;
     await new Promise(resolve => setTimeout(resolve, 100));
-    return [backendStuff, anotherStuff]
-        .map(Stuff.fromBackend)
-        .filter(s => !!s);
+    const arr: Array<BackendStuff> = [backendStuff, anotherStuff, nulledStuff].filter((s):s is BackendStuff => !!s);
+    const res: Array<Stuff> = arr.map(Stuff.fromBackend).filter((s): s is Stuff => !!s);
+    return res;
 }
 
