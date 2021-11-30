@@ -17,3 +17,18 @@ export async function getStuff(id: string): Promise<Stuff | null> {
     return Stuff.fromBackend(backendStuff);
 }
 
+export async function getAllStuff(): Promise<Stuff[]> {
+    const backendStuff = new BackendStuff({
+        meta: getMeta(),
+        data: 'data',
+    });
+    const anotherStuff = new BackendStuff({
+        meta: getMeta(),
+        data: 'another',
+    });
+    await new Promise(resolve => setTimeout(resolve, 100));
+    return [backendStuff, anotherStuff]
+        .map(Stuff.fromBackend)
+        .filter(s => !!s);
+}
+

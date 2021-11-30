@@ -1,5 +1,5 @@
 import { Stuff } from "../entities";
-import {getStuff} from "./stuff.mock.api";
+import {getStuff, getAllStuff} from "./stuff.mock.api";
 
 describe('mock api', ()=>{
     it('should return stuff', async ()=>{
@@ -8,5 +8,14 @@ describe('mock api', ()=>{
         expect(stuff).toBeDefined();
         expect(stuff?.id).toBe('id');
         expect(stuff).toBeInstanceOf(Stuff);
+    });
+
+    it('should return stuff in array', async ()=> {
+        const stuffs = await getAllStuff();
+
+        stuffs.forEach(s => {
+            expect(s).toBeInstanceOf(Stuff);
+            expect(s).toBeDefined();
+        });
     });
 });
