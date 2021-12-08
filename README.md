@@ -7,8 +7,7 @@ Legend:
 - middleware (backend features)
     - stuff
         - api ✔✔
-        - entity ✔✔
-        - hook
+        - entity ✔✔ ✔✔
         - slice
         - thunks
     - combined thunks
