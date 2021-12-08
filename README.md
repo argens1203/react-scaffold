@@ -8,7 +8,7 @@ Legend:
     - stuff
         - api ✔✔
         - entity ✔✔
-        - hooks
+        - hooks ✔
         - slices ✔✔
         - thunks
     - combined thunks

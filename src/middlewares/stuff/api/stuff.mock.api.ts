@@ -1,6 +1,8 @@
 import {BackendStuff, BackendStuffMeta, Stuff} from "../entities";
 import {DateTime} from "luxon";
 
+const timeout = new Promise(resolve => setTimeout(resolve, 100))
+
 const getMeta = () => new BackendStuffMeta({
     isEnabled: true,
     updatedAt: DateTime.now(),
@@ -13,7 +15,7 @@ export async function getStuff(id: string): Promise<Stuff | null> {
         data: 'data'
     });
     backendStuff.meta!.id = id;
-    await new Promise(resolve => setTimeout(resolve, 100));
+    await timeout;
     return Stuff.fromBackend(backendStuff);
 }
 
@@ -27,7 +29,7 @@ export async function getAllStuff(): Promise<Stuff[]> {
         data: 'another',
     });
     const nulledStuff = null;
-    await new Promise(resolve => setTimeout(resolve, 100));
+    await timeout;
     const arr: Array<BackendStuff> = [backendStuff, anotherStuff, nulledStuff].filter((s):s is BackendStuff => !!s);
     const res: Array<Stuff> = arr.map(Stuff.fromBackend).filter((s): s is Stuff => !!s);
     return res;
