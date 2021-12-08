@@ -8,7 +8,8 @@ Legend:
     - stuff
         - api ✔✔
         - entity ✔✔ ✔✔
-        - slice
+        - hooks
+        - slices ✔
         - thunks
     - combined thunks
     - store
@@ -17,3 +18,5 @@ Legend:
 - components (frontend featureless, use separate repo?)
 - utils
     - json transform
+
+- eslint
