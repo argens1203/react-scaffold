@@ -9,6 +9,8 @@ export class Stuff {
 
     data!: string;
 
+    tag?: string;
+
     static fromBackend(n: BackendStuff) {
         const {meta = {}, data, ...rest} = n;
         const {id, isEnabled} = meta;

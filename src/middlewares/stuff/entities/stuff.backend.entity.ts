@@ -33,4 +33,6 @@ export class BackendStuff {
     meta?: BackendStuffMeta;
 
     data?: string;
+
+    tag?: string;
 }

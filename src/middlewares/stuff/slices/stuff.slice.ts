@@ -1,10 +1,11 @@
 import {CaseReducer, createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { logger } from '../../../utils/logger/logger';
 import {Stuff} from '../entities';
 import {StuffState, initialStuffState} from './initial-state';
 
 type PutStuffActionPayload = Stuff;
 
-const putStuff: CaseReducer<StuffState, PayloadAction<PutStuffActionPayload>> = (state, action) => {
+const putStuffExample: CaseReducer<StuffState, PayloadAction<PutStuffActionPayload>> = (state, action) => {
     const stuff: Stuff = action.payload;
     state.lookup[stuff.id] = stuff;
 };
@@ -13,17 +14,18 @@ const stuffSlice = createSlice({
     name: 'stuff',
     initialState: initialStuffState,
     reducers: {
-        putStuff,
+        putStuff: putStuffExample,
         upsertStuff: (state, action: PayloadAction<Partial<Stuff>>) => {
-            const {id, ...updates} = action.payload;
+            const stuff = action.payload;
+            const id = stuff?.id;
             if (!id){
-                //TODO: error handling
+                logger.warn('There is no Stuff associated with this id.')
                 return;
             }
-            state.lookup[id] = Object.assign({}, state.lookup[id], updates);
+            state.lookup[id] = Object.assign({}, state.lookup[id], stuff);
         }
     }
 });
 
-export default stuffSlice.reducer;
+export const stuffReducer = stuffSlice.reducer;
 export const {putStuff, upsertStuff} = stuffSlice.actions; 

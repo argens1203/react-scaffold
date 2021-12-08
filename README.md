@@ -7,9 +7,9 @@ Legend:
 - middleware (backend features)
     - stuff
         - api ✔✔
-        - entity ✔✔ ✔✔
+        - entity ✔✔
         - hooks
-        - slices ✔
+        - slices ✔✔
         - thunks
     - combined thunks
     - store
@@ -18,5 +18,6 @@ Legend:
 - components (frontend featureless, use separate repo?)
 - utils
     - json transform
+    - logger ✔
 
 - eslint
