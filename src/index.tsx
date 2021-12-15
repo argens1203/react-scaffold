@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'reflect-metadata';
 import './index.css';
 import App from './App';
-import { store } from './app/store';
+import { store } from './middlewares/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 

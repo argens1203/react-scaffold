@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction} from '@reduxjs/toolkit';
 import { initialUiState } from './initial-state';
 
-const stuffSlice = createSlice({
+const uiSlice = createSlice({
     name: 'ui',
     initialState: initialUiState,
     reducers: {
@@ -16,5 +16,5 @@ const stuffSlice = createSlice({
     }
 });
 
-export const stuffReducer = stuffSlice.reducer;
-export const {setError, setLoading} = stuffSlice.actions;
+export const stuffReducer = uiSlice.reducer;
+export const {setError, setLoading} = uiSlice.actions;
