@@ -10,7 +10,7 @@ Legend:
         - entity ✔✔
         - hooks ✔
         - slices ✔✔
-        - thunks
+        - thunks ✔✔
     - combined thunks
     - store
 - store
