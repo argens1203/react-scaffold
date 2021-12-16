@@ -1,6 +1,5 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../../store";
+import { useAppSelector } from "../../hooks";
 
 export function useGetStuff(id: string){
-    return useSelector((state: RootState) => state?.stuff?.lookup?.[id] || null);
+    return useAppSelector((state) => state?.stuff?.lookup?.[id] || null);
 }

@@ -1,13 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
 import { getStuff } from './middlewares/stuff/thunks/get-stuff.thunk';
-import { useAppDispatch, useAppSelector } from './middlewares/hooks';
-import { useSelector } from 'react-redux';
+import { useAppDispatch } from './middlewares/hooks';
+import { useGetStuff } from './middlewares/stuff/hooks/use-get-stuff.hook';
+import './App.css';
 
 function App() {
   const dispatch = useAppDispatch();
-  const stuff = useAppSelector(state => state.stuff.lookup.id);
+  const stuff = useGetStuff('id');
   return (
     <div className="App">
       <header className="App-header">
