@@ -1,12 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import './App.css';
-import { useDispatch } from 'react-redux';
 import { getStuff } from './middlewares/stuff/thunks/get-stuff.thunk';
+import { useAppDispatch, useAppSelector } from './middlewares/hooks';
+import { useSelector } from 'react-redux';
 
 function App() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
+  const stuff = useAppSelector(state => state.stuff.lookup.id);
   return (
     <div className="App">
       <header className="App-header">
@@ -16,6 +17,7 @@ function App() {
             dispatch(getStuff('id'));
           }
         }>get stuff</button>
+        <span>{JSON.stringify(stuff)}</span>
         <span>learn</span>
       </header>
     </div>
