@@ -7,25 +7,25 @@ import { TransformFnParams, TransformationType } from 'class-transformer';
  * class-transformer 0.4.0, Jun 07, 2021
  */
 type TransformerSpec<Property, Value> = {
-    toPlain: (property: Property) => Value;
-    toClass: (value: Value) => Property;
-    transformUndefined?: boolean;
+    toClass?: (value: Value) => Property;
+    toPlain?: (property: Property) => Value;
+    passThroughUndefined?: boolean;
 };
 
 export function toTwoWayTransformer<Property, Value>(
     transformerSpec: TransformerSpec<Property, Value>,
 ) {
     return function (params: TransformFnParams): Property | Value | undefined {
-        if (!transformerSpec.transformUndefined && params.value === undefined) {
+        if (!transformerSpec.passThroughUndefined && params.value === undefined) {
             return undefined;
         }
         switch (params.type) {
             case TransformationType.CLASS_TO_PLAIN:
-                return transformerSpec.toPlain(params.value);
+                return transformerSpec.toPlain ?.(params.value) ?? params.value;
             case TransformationType.PLAIN_TO_CLASS:
-                return transformerSpec.toClass(params.value);
+                return transformerSpec.toClass ?.(params.value) ?? params.value;
             default:
-                throw Error('Class to class transformation is not supported');
+                return params.value;
         }
     };
 }
