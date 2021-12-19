@@ -4,6 +4,8 @@ import { getStuff } from './middlewares/stuff/thunks/get-stuff.thunk';
 import { useAppDispatch } from './middlewares/hooks';
 import { useGetStuff } from './middlewares/stuff/hooks/use-get-stuff.hook';
 import './App.css';
+import { DragDeletable } from './modules/drag-deletable';
+import { DragDeletableExample } from './modules/drag-deletable/drag-deletable.example';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -19,6 +21,7 @@ function App() {
         }>get stuff</button>
         <span>{JSON.stringify(stuff)}</span>
         <span>learn</span>
+        <DragDeletableExample/>
       </header>
     </div>
   );

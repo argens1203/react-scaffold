@@ -16,8 +16,11 @@ Legend:
 - store
 - modules (frontend features)
 - components (frontend featureless, use separate repo?)
+    - test example with render & userEvent
 - utils
     - json transform
     - logger ✔
 
-- eslint
+- eslint !!
+
+- tests using user event

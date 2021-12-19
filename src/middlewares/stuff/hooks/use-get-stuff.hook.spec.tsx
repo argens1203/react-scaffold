@@ -4,7 +4,7 @@ import { render, screen } from "@testing-library/react";
 import { store } from '../../store';
 import { putStuff } from '../slices/stuff.slice';
 import { useGetStuff } from "./use-get-stuff.hook";
-import { getComponentWithRedux } from '../../../utils/tests';
+import { getComponentWithRedux } from '../../get-component-with-redux';
 
 describe('use get stuff hook', () => {
     beforeAll(() => {

@@ -8,7 +8,7 @@ type Props = {
     onDelete?: () => void;
 }
 
-const DELETE_DELAY = 100;
+const DELETE_DELAY = 0;
 
 export function DragDeletable(props: Props) {
     const {

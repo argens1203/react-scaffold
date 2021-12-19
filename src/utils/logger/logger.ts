@@ -1,24 +1,27 @@
 import winston from 'winston';
-
-// - Write all logs with importance level of `error` or less to `error.log`
-const errorFile = new winston.transports.File({ filename: 'logs/error.log', level: 'error' });
-
-// - Write all logs with importance level of `info` or less to `combined.log`
-const infoFile = new winston.transports.File({ filename: 'logs/combined.log' });
-
-const consoleLog = new winston.transports.Console({ format: winston.format.simple() });
+import BrowserConsole from 'winston-transport-browserconsole';
 
 const logger = winston.createLogger({
     level: 'debug',
     transports: [],
 });
 
-if (!['production', 'test'].includes(process.env.NODE_ENV)) {
-    logger.add(consoleLog);
-}
+switch(process.env.NODE_ENV){
+    case 'test': 
+        // - Write all logs with importance level of `error` or less to `error.log`
+        const errorFile = new winston.transports.File({ filename: 'logs/error.log', level: 'error' });
+        // - Write all logs with importance level of `info` or less to `combined.log`
+        const infoFile = new winston.transports.File({ filename: 'logs/combined.log' });
 
-// if (!['test'].includes(process.env.NODE_ENV)) {
-logger.add(errorFile).add(infoFile);
-// }
+        logger.add(errorFile).add(infoFile);
+        break;
+    case 'development':
+        const consoleLog = new BrowserConsole({ format: winston.format.simple() });
+        logger.add(consoleLog);
+        break;
+    case 'production':
+    default:
+         break;
+}
 
 export {logger};
