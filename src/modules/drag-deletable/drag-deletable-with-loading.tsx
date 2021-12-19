@@ -6,17 +6,17 @@ type Props = {
     children: React.ReactNode;
     style?: Record<string, any>;
     onDelete?: () => void;
+    loading?: boolean;
 }
-
-const DELETE_DELAY = 0;
 
 export function DragDeletable(props: Props) {
     const {
-        style = {}, onDelete = () => {
-        }
+        style = {},
+        onDelete = () => {},
+        loading = false,
     } = props;
+
     const [listeners, dragContext] = useDragHook();
-    const[loading, setLoading] = useState(false);
     const {onMouseDown, onMouseUp, onMouseMove} = listeners;
     const {translate, isDragging} = dragContext;
 
@@ -47,8 +47,7 @@ export function DragDeletable(props: Props) {
 
     useEffect(() => {
         if (passedThreshold && !isDragging) {
-            setLoading(true);
-            setTimeout(() => onDelete(), DELETE_DELAY);
+            onDelete();
         }
     }, [passedThreshold, isDragging])
 
