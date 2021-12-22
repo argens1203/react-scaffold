@@ -3,13 +3,12 @@ import { Provider } from 'react-redux';
 
 import { store } from './store';
 
-export function getComponentWithRedux(Inner: React.ComponentType){
-    function TestComponent(){
-        return (
-            <Provider store={store}>
-                <Inner/>
-            </Provider>
-        )
-    }
-    return TestComponent;
+export function getComponentWithRedux(Inner: React.ComponentType) {
+  return function () {
+    return (
+      <Provider store={store}>
+        <Inner />
+      </Provider>
+    );
+  };
 }

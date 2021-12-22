@@ -1,16 +1,15 @@
-import {combineReducers, configureStore, ThunkAction, Action} from "@reduxjs/toolkit";
-import thunk from "redux-thunk";
-import logger from 'redux-logger';
-import { stuffReducer } from "./stuff/slices/stuff.slice";
-import { uiReducer } from "./ui/slices";
+import {
+  combineReducers, configureStore, ThunkAction, Action,
+} from '@reduxjs/toolkit';
+import { stuffReducer } from './stuff/slices/stuff.slice';
+import { uiReducer } from './ui/slices';
 
 export const reducer = combineReducers({
-    stuff: stuffReducer,
-    ui: uiReducer,
+  stuff: stuffReducer,
+  ui: uiReducer,
 });
 export const store = configureStore({
-    reducer: reducer,
-    // middleware: [thunk, logger]
+  reducer,
 });
 
 export type RootState = ReturnType<typeof store.getState>;
