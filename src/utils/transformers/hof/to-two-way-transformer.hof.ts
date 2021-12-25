@@ -13,19 +13,19 @@ type TransformerSpec<Property, Value> = {
 };
 
 export function toTwoWayTransformer<Property, Value>(
-    transformerSpec: TransformerSpec<Property, Value>,
+  transformerSpec: TransformerSpec<Property, Value>,
 ) {
-    return function (params: TransformFnParams): Property | Value | undefined {
-        if (!transformerSpec.passThroughUndefined && params.value === undefined) {
-            return undefined;
-        }
-        switch (params.type) {
-            case TransformationType.CLASS_TO_PLAIN:
-                return transformerSpec.toPlain ?.(params.value) ?? params.value;
-            case TransformationType.PLAIN_TO_CLASS:
-                return transformerSpec.toClass ?.(params.value) ?? params.value;
-            default:
-                return params.value;
-        }
-    };
+  return function (params: TransformFnParams): Property | Value | undefined {
+    if (!transformerSpec.passThroughUndefined && params.value === undefined) {
+      return undefined;
+    }
+    switch (params.type) {
+      case TransformationType.CLASS_TO_PLAIN:
+        return transformerSpec.toPlain?.(params.value) ?? params.value;
+      case TransformationType.PLAIN_TO_CLASS:
+        return transformerSpec.toClass?.(params.value) ?? params.value;
+      default:
+        return params.value;
+    }
+  };
 }

@@ -2,7 +2,7 @@ export const initialUiState: {
     loading: boolean;
     errorMessage?: string;
 } = {
-    loading: false,
+  loading: false,
 };
 
 export type UiState = typeof initialUiState;
