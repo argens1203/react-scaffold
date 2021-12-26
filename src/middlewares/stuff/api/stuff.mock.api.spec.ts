@@ -1,21 +1,22 @@
-import { Stuff } from '../entities';
-import { getStuff, getAllStuff } from './stuff.mock.api';
+import { getStuff, getAllStuff } from "./stuff.mock.api";
 
-describe('mock api', () => {
-  it('should return stuff', async () => {
-    const stuff = await getStuff('id');
+import { Stuff } from "../entities";
 
-    expect(stuff).toBeDefined();
-    expect(stuff?.id).toBe('id');
-    expect(stuff).toBeInstanceOf(Stuff);
-  });
+describe("mock api", () => {
+    it("should return stuff", async () => {
+        const stuff = await getStuff("id");
 
-  it('should return stuff in array', async () => {
-    const stuffs = await getAllStuff();
-
-    stuffs.forEach((s) => {
-      expect(s).toBeInstanceOf(Stuff);
-      expect(s).toBeDefined();
+        expect(stuff).toBeDefined();
+        expect(stuff?.id).toBe("id");
+        expect(stuff).toBeInstanceOf(Stuff);
     });
-  });
+
+    it("should return stuff in array", async () => {
+        const stuffs = await getAllStuff();
+
+        stuffs.forEach((s) => {
+            expect(s).toBeInstanceOf(Stuff);
+            expect(s).toBeDefined();
+        });
+    });
 });

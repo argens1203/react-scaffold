@@ -1,10 +1,10 @@
-import { Stuff } from '../entities';
+import { Stuff } from "../entities";
 
 const initialStuffLookup: {
     [id: string]: Stuff;
 } = {};
 
 export const initialStuffState = {
-  lookup: initialStuffLookup,
+    lookup: initialStuffLookup,
 };
 export type StuffState = typeof initialStuffState;

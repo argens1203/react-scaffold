@@ -1,1 +1,1 @@
-export * from './drag-deletable-with-loading';
+export * from "./drag-deletable-with-loading";
