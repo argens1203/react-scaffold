@@ -1,12 +1,13 @@
-import App from "./App";
-import "./index.css";
-import { store } from "./middlewares/store";
-import * as serviceWorker from "./serviceWorker";
+import React from 'react';
 
-import React from "react";
-import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import "reflect-metadata";
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import 'reflect-metadata';
+
+import App from './App';
+import './index.css';
+import { store } from './middlewares/store';
+import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
     <React.StrictMode>
@@ -14,7 +15,7 @@ ReactDOM.render(
             <App />
         </Provider>
     </React.StrictMode>,
-    document.getElementById("root")
+    document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

@@ -1,4 +1,4 @@
-import { BackendStuff } from "./stuff.backend.entity";
+import { BackendStuff } from './stuff.backend.entity';
 
 export class Stuff {
     constructor(input: Partial<Stuff> = {}) {

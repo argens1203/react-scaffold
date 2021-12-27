@@ -1,8 +1,9 @@
-import { StuffState, initialStuffState } from "./initial-state";
+import { CaseReducer, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { logger } from "../../../utils/logger/logger";
-import { Stuff } from "../entities";
-import { CaseReducer, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { logger } from '../../../utils/logger/logger';
+import { Stuff } from '../entities';
+
+import { StuffState, initialStuffState } from './initial-state';
 
 type PutStuffActionPayload = Stuff;
 
@@ -15,7 +16,7 @@ const putStuffExample: CaseReducer<
 };
 
 const stuffSlice = createSlice({
-    name: "stuff",
+    name: 'stuff',
     initialState: initialStuffState,
     reducers: {
         putStuff: putStuffExample,
@@ -23,7 +24,7 @@ const stuffSlice = createSlice({
             const stuff = action.payload;
             const id = stuff?.id;
             if (!id) {
-                logger.warn("There is no Stuff associated with this id.");
+                logger.warn('There is no Stuff associated with this id.');
                 return;
             }
             state.lookup[id] = { ...state.lookup[id], ...stuff };

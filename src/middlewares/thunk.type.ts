@@ -1,6 +1,6 @@
-import { RootState } from "./store";
+import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
 
-import { AnyAction, ThunkDispatch } from "@reduxjs/toolkit";
+import { RootState } from './store';
 
 export type AppThunkDispatch<E = unknown> = ThunkDispatch<
     RootState,

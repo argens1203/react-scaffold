@@ -1,4 +1,4 @@
-import { Stuff } from "../entities";
+import { Stuff } from '../entities';
 
 const initialStuffLookup: {
     [id: string]: Stuff;

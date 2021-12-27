@@ -1,9 +1,10 @@
-import { DragDeletable } from "./drag-deletable-with-loading";
+import React, { useState } from 'react';
 
-import { arrayToObj, getTruthfulIndexes } from "../../utils";
-import { useState } from "react";
+import { arrayToObj, getTruthfulIndexes } from '../../utils';
 
-const keys = ["item1", "item2"];
+import { DragDeletable } from './drag-deletable-with-loading';
+
+const keys = ['item1', 'item2'];
 const initialItems = arrayToObj(keys, true);
 const initialLoading = arrayToObj(keys, false);
 
@@ -42,13 +43,13 @@ function Inner(props: Props) {
     return (
         <div
             style={{
-                width: "100vw",
-                height: "20vh",
-                background: "white",
-                border: "1px solid black",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
+                width: '100vw',
+                height: '20vh',
+                background: 'white',
+                border: '1px solid black',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
             }}
         >
             <span>{`Drag to delete ${id}!`}</span>

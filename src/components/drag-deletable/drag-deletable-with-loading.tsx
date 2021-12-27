@@ -1,7 +1,7 @@
-import { useDragHook } from "./custom-drag.hook";
-import { DeletableBackground } from "./deletable-background";
+import React, { createRef, useEffect, useState } from 'react';
 
-import React, { createRef, useEffect, useState } from "react";
+import { useDragHook } from './custom-drag.hook';
+import { DeletableBackground } from './deletable-background';
 
 type Props = {
     children: React.ReactNode;
@@ -11,7 +11,12 @@ type Props = {
 };
 
 export function DragDeletable(props: Props) {
-    const { style = {}, onDelete = () => {}, loading = false } = props;
+    const {
+        style = {},
+        onDelete = () => {},
+        loading = false,
+        children,
+    } = props;
 
     const [listeners, dragContext] = useDragHook();
     const { onMouseDown, onMouseUp, onMouseMove } = listeners;
@@ -25,9 +30,9 @@ export function DragDeletable(props: Props) {
         const handleResize = (e: Event) => {
             setWidth(ref.current?.offsetWidth);
         };
-        window.addEventListener("resize", handleResize);
+        window.addEventListener('resize', handleResize);
         return () => {
-            window.removeEventListener("resize", handleResize);
+            window.removeEventListener('resize', handleResize);
         };
     }, [ref]);
 
@@ -42,7 +47,7 @@ export function DragDeletable(props: Props) {
 
     const transform =
         passedThreshold && !isDragging
-            ? "translateX(-1000%)"
+            ? 'translateX(-1000%)'
             : `translateX(${Math.min(translate, 0)}px)`;
 
     useEffect(() => {
@@ -54,13 +59,14 @@ export function DragDeletable(props: Props) {
     return (
         <div
             ref={ref}
+            role="presentation"
             onMouseDown={onMouseDown}
             onMouseMove={onMouseMove}
             onMouseUp={onMouseUp}
             onMouseLeave={onMouseUp}
-            style={{ position: "relative", ...style }}
+            style={{ position: 'relative', ...style }}
         >
-            <div style={{ transform, cursor: "move" }}>{props.children}</div>
+            <div style={{ transform, cursor: 'move' }}>{children}</div>
             <DeletableBackground
                 passedThreshold={passedThreshold}
                 loading={loading}

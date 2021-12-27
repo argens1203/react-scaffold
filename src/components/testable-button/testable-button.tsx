@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 export function TestableButton() {
     const [hovered, setHovered] = useState<boolean>(false);
@@ -16,7 +16,7 @@ export function TestableButton() {
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
         >
-            {hovered ? "Hovering" : `Click me! Clicked ${counter} time(s)!`}
+            {hovered ? 'Hovering' : `Click me! Clicked ${counter} time(s)!`}
         </button>
     );
 }

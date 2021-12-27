@@ -1,12 +1,12 @@
-import { stuffReducer } from "./stuff/slices/stuff.slice";
-import { uiReducer } from "./ui/slices";
-
 import {
+    Action,
+    ThunkAction,
     combineReducers,
     configureStore,
-    ThunkAction,
-    Action,
-} from "@reduxjs/toolkit";
+} from '@reduxjs/toolkit';
+
+import { stuffReducer } from './stuff/slices/stuff.slice';
+import { uiReducer } from './ui/slices';
 
 export const reducer = combineReducers({
     stuff: stuffReducer,

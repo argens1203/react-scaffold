@@ -1,9 +1,9 @@
-import { initialUiState } from "./initial-state";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { initialUiState } from './initial-state';
 
 const uiSlice = createSlice({
-    name: "ui",
+    name: 'ui',
     initialState: initialUiState,
     reducers: {
         setError: (state, action: PayloadAction<string>) => {

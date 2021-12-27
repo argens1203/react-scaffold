@@ -1,8 +1,8 @@
-import { logger } from "../../../utils/logger";
-import { AppThunkDispatch } from "../../thunk.type";
-import { setLoading, setError } from "../../ui/slices";
-import { getStuff as getStuffApi } from "../api/stuff.mock.api";
-import { putStuff } from "../slices/stuff.slice";
+import { logger } from '../../../utils/logger';
+import { AppThunkDispatch } from '../../thunk.type';
+import { setError, setLoading } from '../../ui/slices';
+import { getStuff as getStuffApi } from '../api/stuff.mock.api';
+import { putStuff } from '../slices/stuff.slice';
 
 export function getStuff(id: string) {
     return async function (dispatch: AppThunkDispatch) {

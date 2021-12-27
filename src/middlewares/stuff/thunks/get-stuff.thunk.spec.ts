@@ -1,12 +1,13 @@
-import { getStuff } from "./get-stuff.thunk";
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
-import { initialUiState } from "../../ui/slices/initial-state";
-import { setLoading, setError } from "../../ui/slices/ui.slice";
-import * as GetStuffApi from "../api/stuff.mock.api";
-import { initialStuffState } from "../slices/initial-state";
-import { putStuff } from "../slices/stuff.slice";
-import configureMockStore from "redux-mock-store";
-import thunk from "redux-thunk";
+import { initialUiState } from '../../ui/slices/initial-state';
+import { setError, setLoading } from '../../ui/slices/ui.slice';
+import * as GetStuffApi from '../api/stuff.mock.api';
+import { initialStuffState } from '../slices/initial-state';
+import { putStuff } from '../slices/stuff.slice';
+
+import { getStuff } from './get-stuff.thunk';
 
 const getStore = () => {
     const mockStore = configureMockStore([thunk]);
@@ -15,11 +16,11 @@ const getStore = () => {
 };
 // Using spied function modifies slice/actions which make them not return pure JS objects
 
-describe("get stuff thunk", () => {
-    describe("api successfully returns stuff", () => {
-        it("should start ui loading immediately", async () => {
+describe('get stuff thunk', () => {
+    describe('api successfully returns stuff', () => {
+        it('should start ui loading immediately', async () => {
             const store = getStore();
-            await store.dispatch(getStuff("id"));
+            await store.dispatch(getStuff('id'));
 
             const actions = store.getActions();
 
@@ -28,18 +29,18 @@ describe("get stuff thunk", () => {
             expect(actions).toContainEqual(
                 expect.objectContaining({
                     payload: expect.objectContaining({
-                        id: "id",
+                        id: 'id',
                     }),
                 })
             );
         });
 
-        it("should dispatch putError on null return", async () => {
-            const spied = jest.spyOn(GetStuffApi, "getStuff");
+        it('should dispatch putError on null return', async () => {
+            const spied = jest.spyOn(GetStuffApi, 'getStuff');
             spied.mockResolvedValueOnce(null);
 
             const store = getStore();
-            await store.dispatch(getStuff("id"));
+            await store.dispatch(getStuff('id'));
 
             const actions = store.getActions();
 
@@ -48,17 +49,17 @@ describe("get stuff thunk", () => {
 
             expect(actions).toContainEqual(
                 expect.objectContaining({
-                    type: setError("").type,
+                    type: setError('').type,
                 })
             );
         });
 
-        it("should dispatch putError on api error", async () => {
-            const spied = jest.spyOn(GetStuffApi, "getStuff");
-            spied.mockRejectedValueOnce({ message: "api error" }); // TODO: mimic shape of api error
+        it('should dispatch putError on api error', async () => {
+            const spied = jest.spyOn(GetStuffApi, 'getStuff');
+            spied.mockRejectedValueOnce({ message: 'api error' }); // TODO: mimic shape of api error
 
             const store = getStore();
-            await store.dispatch(getStuff("id"));
+            await store.dispatch(getStuff('id'));
 
             const actions = store.getActions();
 
@@ -67,8 +68,8 @@ describe("get stuff thunk", () => {
 
             expect(actions).toContainEqual(
                 expect.objectContaining({
-                    type: setError("").type,
-                    payload: "api error",
+                    type: setError('').type,
+                    payload: 'api error',
                 })
             );
         });

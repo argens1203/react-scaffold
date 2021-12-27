@@ -1,9 +1,9 @@
-import { useCounter } from "./use-counter.hook";
+import { renderHook } from '@testing-library/react-hooks';
+import { act } from 'react-dom/test-utils';
 
-import { renderHook } from "@testing-library/react-hooks";
-import { act } from "react-dom/test-utils";
+import { useCounter } from './use-counter.hook';
 
-it("use get stuff", () => {
+it('use get stuff', () => {
     const { result } = renderHook(() => useCounter());
 
     expect(result.current.counter).toBe(0);

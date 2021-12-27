@@ -1,4 +1,4 @@
-import { TransformFnParams, TransformationType } from "class-transformer";
+import { TransformFnParams, TransformationType } from 'class-transformer';
 
 /**
  * If intended to transform undefined values, note that @Expose is required to force transformer to run
