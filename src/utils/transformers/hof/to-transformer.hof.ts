@@ -6,6 +6,6 @@ import { toTwoWayTransformer } from './to-two-way-transformer.hof';
 export function toTransformer<A, B>(transformFn: (value: A) => B) {
     return toTwoWayTransformer({
         toClass: transformFn,
-        passThroughUndefined: false,
+        transformUndefined: false,
     });
 }

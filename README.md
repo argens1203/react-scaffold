@@ -4,6 +4,11 @@ Legend:
 ✔ Implement
 ✔✔ (& Test)
 
+- todo:
+  - transformer
+  - object.util
+  - user event (one more)
+
 - middleware (backend features)
   - stuff
     - api ✔✔
@@ -22,8 +27,5 @@ Legend:
   - json transform
   - logger ✔
 
-- drag-deletable should be separated into x-axis limited drag AND delete background
-
-- eslint !!
 
 - tests using user event

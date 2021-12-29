@@ -9,17 +9,14 @@ import { TransformFnParams, TransformationType } from 'class-transformer';
 type TransformerSpec<Property, Value> = {
     toClass?: (value: Value) => Property;
     toPlain?: (property: Property) => Value;
-    passThroughUndefined?: boolean;
+    transformUndefined?: boolean; // undefined is passed to transform functions if true
 };
 
 export function toTwoWayTransformer<Property, Value>(
     transformerSpec: TransformerSpec<Property, Value>
 ) {
     return function (params: TransformFnParams): Property | Value | undefined {
-        if (
-            !transformerSpec.passThroughUndefined &&
-            params.value === undefined
-        ) {
+        if (!transformerSpec.transformUndefined && params.value === undefined) {
             return undefined;
         }
         switch (params.type) {

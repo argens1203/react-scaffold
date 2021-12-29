@@ -1,8 +1,6 @@
 import React from 'react';
 
 import './App.css';
-import { DragDeletable } from './components/drag-deletable';
-import { DragDeletableExample } from './components/drag-deletable/drag-deletable.example';
 import { TestableButton } from './components/testable-button';
 import logo from './logo.svg';
 import { useAppDispatch } from './middlewares/hooks';
@@ -26,7 +24,6 @@ function App() {
                 </button>
                 <span>{JSON.stringify(stuff)}</span>
                 <span>learn</span>
-                <DragDeletableExample />
                 <TestableButton />
             </header>
         </div>
