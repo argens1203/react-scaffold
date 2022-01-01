@@ -46,7 +46,7 @@ module.exports = {
             },
         ],
         'max-len': ['warn', { code: 180 }], // TODO: adjust
-        'max-classes-per-file': ['warn', 1],
+        'max-classes-per-file': ['off'],
         'no-case-declarations': 'off',
         'no-console': 'error',
         'no-param-reassign': [

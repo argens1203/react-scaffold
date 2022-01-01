@@ -2,8 +2,8 @@ export function getTruthfulIndexes(
     obj: Record<string, boolean>
 ): Array<string> {
     return Object.entries(obj)
-        .filter(([k, v]) => !!v)
-        .map(([k, v]) => k);
+        .filter(([_, v]) => !!v)
+        .map(([k, _]) => k);
 }
 
 export function arrayToObj<T>(
@@ -16,4 +16,8 @@ export function arrayToObj<T>(
     });
 
     return obj;
+}
+
+export function arrayToRecord(arr: Array<string>) {
+    return arrayToObj(arr, true);
 }
