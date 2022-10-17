@@ -21,8 +21,9 @@ module.exports = {
     rules: {
         '@typescript-eslint/no-use-before-define': 'off',
         '@typescript-eslint/no-empty-function': 'off',
-        '@typescript-eslint/no-unused-vars': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/no-unused-vars': 'off',
+        '@typescript-eslint/no-shadow': 'error',
         'func-names': 'off',
         'import/prefer-default-export': 'off',
         'import/no-extraneous-dependencies': [
@@ -53,6 +54,7 @@ module.exports = {
             'error',
             { props: true, ignorePropertyModificationsFor: ['state'] },
         ],
+        'no-shadow': 'off',
         'no-use-before-define': 'off',
         'no-unused-vars': 'off',
         'react/function-component-definition': 'off',
