@@ -1,8 +1,13 @@
 import { Suit, Position } from '../enums';
+import { Trump } from '../enums/trump.enum';
+import { Vulnerability } from '../enums/vulnerability.enum';
 
 export type Hand = {
     [suit in Suit]: number[];
 };
+
+type MaxTrick = Record<Trump, number>;
+type MaxContract = Record<Partial<Position>, MaxTrick>;
 
 type Deal = {
     number: number;
@@ -11,19 +16,22 @@ type Deal = {
         trump: Suit;
     };
     dealer: Position;
+    vulnerability: Vulnerability;
     declarer: Position;
     hands: {
         [position in Position]: Hand;
     };
+    maxContract: MaxContract;
 };
 
 export const DEAL: Deal = {
-    number: 1,
+    number: 18,
     contract: {
         level: 3,
         trump: Suit.CLUB,
     },
-    dealer: Position.NORTH,
+    dealer: Position.EAST,
+    vulnerability: Vulnerability.NS,
     declarer: Position.SOUTH,
     hands: {
         [Position.NORTH]: {
@@ -49,6 +57,36 @@ export const DEAL: Deal = {
             [Suit.HEART]: [11, 4, 3],
             [Suit.DIAMOND]: [12, 11, 9],
             [Suit.CLUB]: [13, 4],
+        },
+    },
+    maxContract: {
+        [Position.NORTH]: {
+            [Trump.NT]: 5,
+            [Trump.SPADE]: 1,
+            [Trump.HEART]: 5,
+            [Trump.DIAMOND]: 5,
+            [Trump.CLUB]: 3,
+        },
+        [Position.SOUTH]: {
+            [Trump.NT]: 5,
+            [Trump.SPADE]: 1,
+            [Trump.HEART]: 5,
+            [Trump.DIAMOND]: 5,
+            [Trump.CLUB]: 3,
+        },
+        [Position.EAST]: {
+            [Trump.NT]: 0,
+            [Trump.SPADE]: 0,
+            [Trump.HEART]: 0,
+            [Trump.DIAMOND]: 0,
+            [Trump.CLUB]: 0,
+        },
+        [Position.WEST]: {
+            [Trump.NT]: 0,
+            [Trump.SPADE]: 0,
+            [Trump.HEART]: 0,
+            [Trump.DIAMOND]: 0,
+            [Trump.CLUB]: 0,
         },
     },
 };
