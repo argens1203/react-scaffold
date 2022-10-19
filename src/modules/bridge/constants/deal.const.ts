@@ -7,7 +7,7 @@ export type Hand = {
 };
 
 type MaxTrick = Record<Trump, number>;
-type MaxContract = Record<Partial<Position>, MaxTrick>;
+export type MaxContract = Record<Partial<Position>, MaxTrick>;
 
 type Deal = {
     number: number;
