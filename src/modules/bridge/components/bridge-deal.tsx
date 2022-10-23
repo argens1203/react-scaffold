@@ -13,7 +13,7 @@ type Props = { deal: any };
 export function BridgeDeal() {
     const { hands, maxContract } = DEAL;
     return (
-        <div style={{ maxWidth: 300 }}>
+        <div style={{ maxWidth: 500, minHeight: 500 }}>
             <GridContainer width={3} height={3}>
                 <div />
                 <BridgeHand hand={hands[Position.NORTH]} />
@@ -21,9 +21,9 @@ export function BridgeDeal() {
                 <BridgeHand hand={hands[Position.WEST]} />
                 <BridgePositions />
                 <BridgeHand hand={hands[Position.EAST]} />
-                <BridgePossibleContractGrid maxContract={maxContract} />
-                <BridgeHand hand={hands[Position.SOUTH]} />
                 <div />
+                <BridgeHand hand={hands[Position.SOUTH]} />
+                <BridgePossibleContractGrid maxContract={maxContract} />
             </GridContainer>
         </div>
     );

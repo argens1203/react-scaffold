@@ -23,7 +23,13 @@ export function BridgePossibleContractGrid(props: Props) {
     console.log(maxContract);
 
     return (
-        <div style={{ backgroundColor: 'grey' }}>
+        <div
+            style={{
+                borderColor: 'grey',
+                borderWidth: '1',
+                borderStyle: 'solid',
+            }}
+        >
             <GridContainer width={6} height={5}>
                 <div />
                 <div>{getTrumpSymbol(Trump.NT)}</div>
@@ -34,7 +40,7 @@ export function BridgePossibleContractGrid(props: Props) {
                 {POSITIONS.map((pos) =>
                     [<div>{getShortForm(pos)}</div>].concat(
                         Object.values(maxContract[pos]).map((s) => (
-                            <div>{s === 0 ? null : s}</div>
+                            <div>{s === 0 ? '-' : s}</div>
                         ))
                     )
                 )}

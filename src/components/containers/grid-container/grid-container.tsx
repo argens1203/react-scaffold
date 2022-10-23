@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 
-import { range } from '../../utils/array.util';
+import { range } from '../../../utils/array.util';
 
 type Props = { width: number; height: number };
 
@@ -26,7 +26,7 @@ export function GridContainer(props: PropsWithChildren<Props>) {
             style={{
                 display: 'grid',
                 gridTemplateColumns,
-                gridTemplateRows,
+                // gridTemplateRows,
             }}
         >
             {children}
