@@ -1,7 +1,7 @@
 import { logger } from '../../../utils/logger';
 import { AppThunkDispatch } from '../../thunk.type';
 import { setError, setLoading } from '../../ui/slices';
-import { getStuff as getStuffApi } from '../api/stuff.mock.api';
+import { getStuff as getStuffApi } from '../api/stuff.api';
 import { putStuff } from '../slices/stuff.slice';
 
 export function getStuff(id: string) {

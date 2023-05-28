@@ -7,6 +7,7 @@
         "@material-ui/icons": "^4.11.2",
         "@reduxjs/toolkit": "^1.6.2",
         "axios": "^0.24.0",
+        "axios-mock-adapter": "^1.21.4",
         "class-transformer": "^0.4.0",
         "class-validator": "^0.13.2",
         "luxon": "^2.1.1",

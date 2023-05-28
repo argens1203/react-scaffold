@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 
 import { initialUiState } from '../../ui/slices/initial-state';
 import { setError, setLoading } from '../../ui/slices/ui.slice';
-import * as GetStuffApi from '../api/stuff.mock.api';
+import * as GetStuffApi from '../api/stuff.api';
 import { initialStuffState } from '../slices/initial-state';
 import { putStuff } from '../slices/stuff.slice';
 

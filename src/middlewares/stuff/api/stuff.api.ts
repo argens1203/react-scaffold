@@ -1,22 +1,27 @@
-import axios, { AxiosResponse } from 'axios';
-import { deserialize } from 'class-transformer';
+import { AxiosResponse } from 'axios';
+import { plainToClass } from 'class-transformer';
 
-import { BASE_URL } from '../../../config';
 import { BackendStuff, Stuff } from '../entities';
 
-export async function getAllNodes(): Promise<BackendStuff[]> {
-    const nodes = await axios
-        .get(`${BASE_URL}/nodes`)
-        .then((res) => res.data.data);
+import { GET_STUFF_URL } from './constants';
+import { instance } from './instance';
+
+// Returns mocked at axios instance (./instance) if IS_TEST / IS_MOCK = true.
+
+export async function getAllStuff(): Promise<BackendStuff[]> {
+    const nodes = await instance.get(GET_STUFF_URL).then((res) => res.data);
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return nodes.map((n: any) => deserialize(BackendStuff, JSON.stringify(n)));
+    return nodes.map((n: any) => {
+        const backendStuff = plainToClass(BackendStuff, n) as BackendStuff;
+        return Stuff.fromBackend(backendStuff);
+    });
 }
 
-export async function getNode(id: string) {
-    const n = await axios
-        .get(`${BASE_URL}/stuffs/${id}`)
-        .then((res: AxiosResponse) => res.data.data);
-    const backendStuff = deserialize(BackendStuff, JSON.stringify(n));
+export async function getStuff(id: string) {
+    const n = await instance
+        .get(`${GET_STUFF_URL}/${id}`)
+        .then((res: AxiosResponse) => res.data);
+    const backendStuff = plainToClass(BackendStuff, n) as BackendStuff;
     return Stuff.fromBackend(backendStuff);
 }

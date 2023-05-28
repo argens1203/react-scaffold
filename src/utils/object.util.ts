@@ -14,7 +14,6 @@ export function arrayToObj<T>(
     arr.forEach((k) => {
         obj[k] = initialValue;
     });
-
     return obj;
 }
 

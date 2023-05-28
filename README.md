@@ -1,0 +1,1 @@
+If using VSCode, install the extensios as specified in `.vscode/settings.json`

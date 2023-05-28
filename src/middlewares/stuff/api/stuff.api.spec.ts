@@ -1,6 +1,6 @@
 import { Stuff } from '../entities';
 
-import { getAllStuff, getStuff } from './stuff.mock.api';
+import { getAllStuff, getStuff } from './stuff.api';
 
 describe('mock api', () => {
     it('should return stuff', async () => {
