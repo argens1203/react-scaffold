@@ -12,6 +12,7 @@ export function TestableButton() {
 
     return (
         <button
+            type="button"
             onClick={onClick}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
