@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/react-scaffold/static/css/main.75b2d7f5.chunk.css",
+    "main.js": "/react-scaffold/static/js/main.639766d6.chunk.js",
+    "main.js.map": "/react-scaffold/static/js/main.639766d6.chunk.js.map",
+    "runtime-main.js": "/react-scaffold/static/js/runtime-main.e559fe47.js",
+    "runtime-main.js.map": "/react-scaffold/static/js/runtime-main.e559fe47.js.map",
+    "static/js/2.dfaa7d45.chunk.js": "/react-scaffold/static/js/2.dfaa7d45.chunk.js",
+    "static/js/2.dfaa7d45.chunk.js.map": "/react-scaffold/static/js/2.dfaa7d45.chunk.js.map",
+    "index.html": "/react-scaffold/index.html",
+    "static/css/main.75b2d7f5.chunk.css.map": "/react-scaffold/static/css/main.75b2d7f5.chunk.css.map",
+    "static/js/2.dfaa7d45.chunk.js.LICENSE.txt": "/react-scaffold/static/js/2.dfaa7d45.chunk.js.LICENSE.txt",
+    "static/media/logo.b2e5a01e.svg": "/react-scaffold/static/media/logo.b2e5a01e.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e559fe47.js",
+    "static/js/2.dfaa7d45.chunk.js",
+    "static/css/main.75b2d7f5.chunk.css",
+    "static/js/main.639766d6.chunk.js"
+  ]
+}
