@@ -32,7 +32,7 @@ export const getAllBackendStuff = () => {
     return classToPlain([backendStuff, anotherStuff]);
 };
 
-export function getBackendStuff(id: string): any {
+export function getBackendStuff(id: string) {
     const backendStuff = new BackendStuff({
         meta: getMeta(id),
         data: 'data',

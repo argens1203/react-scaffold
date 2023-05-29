@@ -1,4 +1,4 @@
-import { Transform, deserialize, serialize, Expose } from 'class-transformer';
+import { Transform, deserialize, Expose } from 'class-transformer';
 import { DateTime } from 'luxon';
 
 import { isoStringToDateTime } from './iso-string-to-date-time.transformer';
@@ -22,7 +22,7 @@ describe('to two way transformer hof', () => {
             const entity = deserialize(Entity, json);
             const datetime = entity.property;
 
-            datetime?.setZone?.('Asia/Hong_Kong');
+            entity.property = datetime?.setZone?.('Asia/Hong_Kong');
 
             expect(entity.property?.year).toBe(2022);
             expect(entity.property?.month).toBe(1);

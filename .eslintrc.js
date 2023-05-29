@@ -23,6 +23,7 @@ module.exports = {
         '@typescript-eslint/no-empty-function': 'off',
         '@typescript-eslint/no-unused-vars': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
         'func-names': 'off',
         'import/prefer-default-export': 'off',
         'import/no-extraneous-dependencies': [
