@@ -1,0 +1,25 @@
+name: Test and Build
+description: Runs unit test, publish coverage & build production bundle
+inputs:
+  node-version:
+    required: true
+    description: Node version
+runs:
+  using: composite
+  steps:
+  - name: Use Node.js ${{ input.node-version }}
+    uses: actions/setup-node@v1
+    with:
+      node-version: ${{ input.node-version }}
+
+  - name: CI - install packages
+    run: npm ci
+
+  - name: Unit Test
+    run: npm run test:ci
+
+  - name: Upload coverage to Codecov
+    uses: codecov/codecov-action@v1
+
+  - name: NPM Build
+    run: npm run build --if-present
