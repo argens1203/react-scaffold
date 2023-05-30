@@ -7,10 +7,10 @@ inputs:
 runs:
   using: composite
   steps:
-  - name: Use Node.js ${{ input.node-version }}
+  - name: Use Node.js ${{ inputs.node-version }}
     uses: actions/setup-node@v1
     with:
-      node-version: ${{ input.node-version }}
+      node-version: ${{ inputs.node-version }}
 
   - name: CI - install packages
     run: npm ci
