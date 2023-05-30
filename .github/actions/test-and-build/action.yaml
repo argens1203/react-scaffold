@@ -14,12 +14,15 @@ runs:
 
   - name: CI - install packages
     run: npm ci
+    shell: bash
 
   - name: Unit Test
     run: npm run test:ci
+    shell: bash
 
   - name: Upload coverage to Codecov
     uses: codecov/codecov-action@v1
 
   - name: NPM Build
     run: npm run build --if-present
+    shell: bash
