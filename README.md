@@ -1,4 +1,4 @@
-If using VSCode, install the extensios as specified in `.vscode/settings.json`
+If using VSCode, install the extensions as specified in `.vscode/settings.json`
 
 ![CI/CD](https://github.com/argens1203/react-scaffold/workflows/CI/badge.svg)
 
