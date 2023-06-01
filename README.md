@@ -4,4 +4,4 @@ If using VSCode, install the extensions as specified in `.vscode/settings.json`
 
 [![codecov](https://codecov.io/gh/argens1203/react-scaffold/branch/main/graph/badge.svg)](https://codecov.io/gh/argens1203/react-scaffold)
 
-[Demo](https://argens1203.github.io/react-scaffold/)
+[Demo](https://Pyroglacier.github.io/react-scaffold/)
