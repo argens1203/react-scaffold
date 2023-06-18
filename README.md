@@ -15,3 +15,6 @@ https://github.com/argens1203/react-scaffold/settings/secrets/actions
 - ACTIONS_DEPLOY_ACCESS_TOKEN
     - repo:statusAccess
     - public_repoAccess
+
+## When copying
+When copying / cloning / branching out, be sure to update all repo names in this README.md, as well as "homepage" field in package.json
